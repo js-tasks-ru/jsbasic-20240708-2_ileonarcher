@@ -3,8 +3,4 @@ function makeDiagonalRed(table) {
     console.log(table.rows[i].cells[i]);
     table.rows[i].cells[i].style.backgroundColor = "red";
   }
-  // for (tr of tbody.rows) {
-  //   console.log(tr);
-  //   tr[tr.rowIndex].style('color: red')
-  // }
 }
