@@ -4,7 +4,6 @@ function initCarousel() {
   let carousel = document.querySelector(".carousel__inner");
   let slideNumber = 0;
   let slideWidth = carousel.offsetWidth;
-  let container = document.querySelector(".container");
   arrowLeft.style.display = "none";
   arrowRight.addEventListener("click", (event) => {
     if (event.target.closest(".carousel__arrow")) {
