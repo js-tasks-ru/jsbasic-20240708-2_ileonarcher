@@ -18,19 +18,17 @@ export default class ProductCard {
         </div>
       </div>`);
 
-    let link = document.querySelector("#holder");
-
-    link.addEventListener("product-add", (event) => {
+    this.elem.addEventListener("product-add", (event) => {
       console.log(event.detail);
     });
 
-    link.addEventListener("click", (event) => {
+    this.elem.addEventListener("click", (event) => {
       if (event.target.closest(".card__button")) {
         let ce = new CustomEvent("product-add", {
           detail: product.id,
           bubbles: true,
         });
-        link.dispatchEvent(ce);
+        this.elem.dispatchEvent(ce);
       }
     });
   }

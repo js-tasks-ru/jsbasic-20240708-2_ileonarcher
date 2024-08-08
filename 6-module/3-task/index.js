@@ -40,13 +40,8 @@ export default class Carousel {
   }
 
   initCarousel() {
-    // let arrowLeft = document.querySelector(".carousel__arrow_left");
-    // let arrowRight = document.querySelector(".carousel__arrow_right");
-    // let carousel = document.querySelector(".carousel__inner");
-    let carouselSection = document.querySelector(".container");
+    let carouselSection = this.elem;
     let slideNumber = 0;
-    let slideWidth = window.innerWidth;
-
     let slidesLength =
       this.collection.getElementsByClassName("carousel__slide").length;
 
@@ -60,6 +55,7 @@ export default class Carousel {
         if (event.target.closest(".carousel__arrow_right")) {
           slideNumber += 1;
         }
+        let slideWidth = this.elem.offsetWidth;
         this.collection.style.transform = `translateX(-${
           slideNumber * slideWidth
         }px)`;
@@ -78,19 +74,17 @@ export default class Carousel {
   }
 
   addToCart() {
-    let link = document.querySelector(".container");
-
-    link.addEventListener("product-add", (event) => {
+    this.elem.addEventListener("product-add", (event) => {
       console.log(event.detail);
     });
 
-    link.addEventListener("click", (event) => {
+    this.elem.addEventListener("click", (event) => {
       if (event.target.closest(".carousel__button")) {
         let ce = new CustomEvent("product-add", {
           detail: event.target.closest(".carousel__slide").id,
           bubbles: true,
         });
-        link.dispatchEvent(ce);
+        this.elem.dispatchEvent(ce);
       }
     });
   }
